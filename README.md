@@ -12,7 +12,11 @@ This script is broken down into five code chunks. These chunks are as follows:
 5. Run the pytorch model on the "video" object, getting "predictions" 
     for each frame. Save these prediction arrays to individual numpy files.
 
-The primary issue is in chunk 5. Running this code with a large video gets this error:
+The primary issues are in chunks 4 and 5. Running this code with a large video gets this error in chunk 4:
+```
+RuntimeError: [enforce fail at ..\c10\core\CPUAllocator.cpp:76] data. DefaultCPUAllocator: not enough memory: you tried to allocate 74096640000 bytes
+```
+If I put a smaller video into chunk 4, I can still get this error in chunk 5:
 ```
 OutOfMemoryError: CUDA out of memory. Tried to allocate 9.21 GiB (GPU 0; 10.00 GiB total capacity; 76.46 MiB already allocated; 8.79 GiB free; 102.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
 ```
