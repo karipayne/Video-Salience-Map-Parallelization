@@ -13,7 +13,9 @@ This script is broken down into five code chunks. These chunks are as follows:
     for each frame. Save these prediction arrays to individual numpy files.
 
 The primary issue is in chunk 5. Running this code with a large video gets this error:
-    OutOfMemoryError: CUDA out of memory. Tried to allocate 9.21 GiB (GPU 0; 10.00 GiB total capacity; 76.46 MiB already allocated; 8.79 GiB free; 102.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+```
+OutOfMemoryError: CUDA out of memory. Tried to allocate 9.21 GiB (GPU 0; 10.00 GiB total capacity; 76.46 MiB already allocated; 8.79 GiB free; 102.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+```
 
 The authors of this model downsized their videos to avoid this, and also recommended adding "with torch.no_grad():" to disable gradient computation, which should save a little memory.
 
@@ -25,7 +27,9 @@ More information on DeepGaze MR can be found [here](https://github.com/mtangeman
 More information on DeepGaze III can be found [here](https://github.com/matthias-k/DeepGaze)
 
 ADDITIONAL NOTE: Running DeepGaze MR in with pytorch = 1.11 gives us this error:
+```
     RuntimeError: Expected 2D (unbatched) or 3D (batched) input to conv1d, but got input of size: [1, 1, 720, 1368]
+```
 This error does not come up with pytorch 1.10.
 
 ### File: VideoCreation.ipynb
