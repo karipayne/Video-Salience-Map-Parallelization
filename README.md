@@ -1,4 +1,6 @@
 # Video-Salience-Map-Parallelization
+Example videos are in a Google Drive folder [here](https://drive.google.com/drive/folders/1jEEcrtoYTHKP-WeqKzJPLCtIYD_sAwWg?usp=sharing).
+
 ### File: DeepGazeMR_Heatmaps.ipynb
 
 This script is broken down into five code chunks. These chunks are as follows:
